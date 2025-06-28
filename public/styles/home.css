@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+button {
+  padding: 12px 24px;
+  margin: 10px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: white;
+  color: #000;
+  box-shadow: 0 0 12px rgba(194, 194, 193, 0.5);
+}
+
+/* Streak display box */
+
+.streak-box {
+  background: #111;
+  padding: 25px 20px;
+  border-radius: 14px;
+  box-shadow: 0 0 15px #333;
+  max-width: 260px;
+  width: 90%;
+  margin: 0 auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.streak-box h2 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: white;
+  font-family: 'Courier New', monospace;
+}
+
+.streak-days {
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #00ffcc;
+  font-family: 'Courier New', monospace;
+}
+
+/* Reminder box */
+.reminder-box {
+  background-color: #1a1a1a;
+  padding: 12px 20px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #f0f0f0;
+  font-size: 1rem;
+  margin-top: 15px;
+  box-shadow: 0 0 10px #222;
+}
+
+/* Logged in info */
+.logged-in {
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+body {
+  background: linear-gradient(135deg, #0a0a0a, #111111, #1a1a1a, #2b2b2b, #111);
+  background-size: 500% 500%;
+  animation: gradientBG 20s ease infinite;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  text-align: center;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+

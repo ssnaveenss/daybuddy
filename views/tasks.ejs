@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DayBuddy</title>
+  <link rel="stylesheet" href="/styles/tasks.css">
+  <link rel="icon" type="x-icon" href="/images/favicon.ico"/>
+</head>
+<body style="padding-top: 60px;">
+  <%- include("partials/navbar") %>
+  <h1>Daily Tasks</h1>
+  <form action="/add-todo" method="post">
+    <input type="text" name="todo" placeholder="Add a new task..." required>
+    <button type="submit">➕</button>
+  </form>
+
+  <ul>
+    <% todos.forEach(todo => { %>
+      <li>
+        <% if (!todo.is_done) { %>
+          <form action="/done-todo" method="post" style="display:inline">
+            <input type="hidden" name="todoId" value="<%= todo.id %>">
+            <input type="checkbox" class="big-checkbox" onclick="this.form.submit()">
+          </form>
+        <% } else { %>
+          <input type="checkbox" class="big-checkbox" checked disabled>
+        <% } %>
+
+        <span class="task-text" data-id="<%= todo.id %>"><%= todo.task %></span>
+
+        <form action="/edit-todo" method="post" class="edit-form" style="display:none">
+          <input type="hidden" name="todoId" value="<%= todo.id %>">
+          <input type="text" name="updatedText" class="edit-input" value="<%= todo.task %>" />
+        </form>
+
+        <form action="/delete-todo" method="post" style="display:inline">
+          <input type="hidden" name="todoId" value="<%= todo.id %>">
+          <button type="submit">❌</button>
+        </form>
+      </li>
+    <% }) %>
+  </ul>
+
+  
+
+  <h2>Long-Term Goals</h2>
+  <form action="/add-goal" method="post">
+    <input type="text" name="goal" placeholder="Add your goal..." required>
+    <button type="submit">➕</button>
+  </form>
+
+  <ul>
+    <% goals.forEach(goal => { %>
+      <li>
+        <% if (!goal.is_completed) { %>
+          <form action="/done-goal" method="post" style="display:inline">
+            <input type="hidden" name="goalId" value="<%= goal.id %>">
+            <input type="checkbox" class="big-checkbox" onclick="this.form.submit()">
+          </form>
+        <% } else { %>
+          <input type="checkbox" class="big-checkbox" checked disabled>
+        <% } %>
+        <span class="task-text" data-id="<%= goal.id %>" data-type="goal"><%= goal.goal_text %></span>
+
+        <form action="/edit-goal" method="post" class="edit-form" style="display:none">
+          <input type="hidden" name="goalId" value="<%= goal.id %>">
+          <input type="text" name="updatedText" class="edit-input" value="<%= goal.goal_text %>" />
+        </form>
+
+        <form action="/delete-goal" method="post" style="display:inline">
+          <input type="hidden" name="goalId" value="<%= goal.id %>">
+          <button type="submit">❌</button>
+        </form>
+
+
+      </li>
+    <% }) %>
+  </ul>
+
+  <script src="/scripts/edit-inline.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# Node dependencies
+node_modules/
+
+# Env file (keep secrets private)
+.env
+
+# System
+.DS_Store
+
+# Logs (optional)
+*.log
+
+# Temp folders (optional)
+tmp/
+cache/

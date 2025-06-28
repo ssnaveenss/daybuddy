@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DayBuddy</title>
+  <link rel="stylesheet" href="/styles/progress.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+</head>
+<body style="padding-top: 60px;">
+  <%- include("partials/navbar") %>
+  <h1>Your Last 30 Days</h1>
+
+  <div class="calendar-grid">
+    <% calendar.forEach(day => { %>
+      <div class="calendar-cell">
+        <div class="date"><%= day.date %></div>
+        <div class="dot <%= day.met ? 'met' : 'not-met' %>"></div>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

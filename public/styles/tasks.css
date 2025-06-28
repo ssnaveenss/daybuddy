@@ -1,0 +1,103 @@
+body {
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family: 'Courier New', monospace;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 20px;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  background-color: #222;
+  color: white;
+  border-radius: 5px;
+  width: 300px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  background-color: #444;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+li {
+  background-color: #111;
+  padding: 10px 15px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.05);
+}
+
+.task-text {
+  font-size: 16px;
+  color: #ccc;
+  flex: 1;
+  text-align: center;
+}
+
+/* ✅ Shared Green Checkbox for Both Todos and Goals */
+form[action="/done-todo"] button,
+form[action="/done-goal"] button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 5px #28a74580;
+  transition: background-color 0.2s ease;
+}
+
+form[action="/done-todo"] button:hover,
+form[action="/done-goal"] button:hover {
+  background-color: #218838;
+}
+
+.big-checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: #28a745;
+}
+
+.big-checkbox:checked {
+accent-color: #00c853; 
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DayBuddy</title>
+  <link rel="stylesheet" href="/styles/pomodoro.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>  
+</head>
+<body>
+  <%- include("partials/navbar") %>
+  <div class="container">
+    <h1>Pomodoro Timer</h1>
+    
+    <div class="timer">
+      <span id="minutes">25</span>:<span id="seconds">00</span>
+    </div>
+
+    <div class="controls">
+      <button id="start">Start</button>
+      <button id="pause">Pause</button>
+      <button id="reset">Reset</button>
+    </div>
+
+    <div class="settings">
+      <label>Work (min): <input type="number" id="workInput" value="25" min="1" /></label>
+      <label>Break (min): <input type="number" id="breakInput" value="5" min="1" /></label>
+      <label>Rounds: <input type="number" id="roundInput" value="4" min="1" /></label>
+    </div>
+
+    <audio id="bell" src="/sounds/bell.mp3" preload="auto"></audio>
+  </div>
+
+  <script src="/scripts/pomodoro.js"></script>
+</body>
+</html>

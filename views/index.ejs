@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DayBuddy</title>
+  <link rel="stylesheet" href="/styles/home.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico"/>
+</head>
+<body>
+  <section>
+    <h1>Welcome to DayBuddy</h1>
+    <p>Make big dreams achievable — one productive day at a time!</p>
+
+    <% if (showWarning && user) { %>
+      <div class="reminder-box">
+        ⏳ <strong>Reminder:</strong> Complete at least <strong>2 tasks</strong> and <strong>1 Pomodoro session</strong> today.
+      </div>
+    <% } %>
+
+    <div class="streak-box">
+      <% if (user) { %>
+        <h2>🔥 Your Streaks</h2>
+        <% let total = habits.reduce((acc,h) => acc + h.streak_count, 0); %>
+        <p class="streak-days"><%= total %> days</p>
+      <% } else { %>
+        <h2>Daily Motivation!</h2>
+        <p class="streak-days quote"><%= quote %></p>
+      <% } %>
+    </div>
+
+    <% if (user) { %>
+      <div class="nav-buttons">
+        <a href="/tasks"><button>Let's Do It</button></a>
+        <p class="logged-in">Logged in as <strong><%= user.displayName %></strong></p>
+        <a href="/logout"><button style="background-color:#333;">Logout</button></a>
+      </div>
+    <% } else { %>
+      <div class="nav-buttons">
+        <a href="/auth/google"><button style="background-color:#fff; color:#000; border:1px solid #ccc">Login with Google</button></a>
+      </div>
+    <% } %>
+
+  </section>
+</body>
+</html>
