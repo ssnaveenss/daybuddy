@@ -91,11 +91,11 @@ async function updateStreakIfNeeded(userId, forDate = new Date().toISOString().s
   yesterday.setDate(today.getDate() - 1);
   const yesterdayStr = yesterday.toISOString().split("T")[0];
 
-  // Reset streak if user missed yesterday
-  if (lastChecked && lastChecked.toISOString().split("T")[0] < yesterdayStr) {
-    await db.query(`UPDATE habits SET streak_count = 0 WHERE user_id = $1`, [userId]);
-    console.log(`Reset streaks for user ${userId}`);
-  }
+  // // Reset streak if user missed yesterday
+  // if (lastChecked && lastChecked.toISOString().split("T")[0] < yesterdayStr) {
+  //   await db.query(`UPDATE habits SET streak_count = 0 WHERE user_id = $1`, [userId]);
+  //   console.log(`Reset streaks for user ${userId}`);
+  // }
 
   // Increment streak only once per day and only if conditions are met
   if (enoughTasks && didPomo && !log.streak_incremented) {
