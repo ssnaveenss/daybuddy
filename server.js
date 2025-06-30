@@ -29,10 +29,7 @@ const db = new pg.Client({
   connectionString: process.env.DATABASE_URL,
   ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
 });
-
-
-
-
+// 4th draft
 
 // Session configuration for login persistence
 app.use(session({
