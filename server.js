@@ -14,23 +14,18 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-// Setup PostgreSQL client
-// const db = new pg.Client({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASS,
-//   port: process.env.DB_PORT,
-// });
-// db.connect();
-
-// Setup PostgreSQL client & hosting in render
+// Connect to PostgreSQL database
 const db = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
   ssl: {
     rejectUnauthorized: false
   }
 });
+db.connect();
 
 // Session configuration for login persistence
 app.use(session({
