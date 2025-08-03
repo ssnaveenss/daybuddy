@@ -1,15 +1,18 @@
 # Node dependencies
 node_modules/
 
-# Env file (keep secrets private)
+# Env file
 .env
 
 # System
 .DS_Store
 
-# Logs (optional)
+# Logs
 *.log
 
-# Temp folders (optional)
+# Temp folders
 tmp/
 cache/
+
+# Render hosting credentials
+Render.txt

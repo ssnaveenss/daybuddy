@@ -14,26 +14,29 @@ dotenv.config();
 const app = express();
 const port = 3000;
 
-// Setup PostgreSQL client
-// const db = new pg.Client({
-//   user: process.env.DB_USER,
-//   host: process.env.DB_HOST,
-//   database: process.env.DB_NAME,
-//   password: process.env.DB_PASS,
-//   port: process.env.DB_PORT,
-// });
-// db.connect();
-
-// Connect to PostgreSQL database
+// Setup PostgreSQL client - LOCALHOST
 const db = new pg.Client({
-  connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
+  user: process.env.DB_USER,
+  host: process.env.DB_HOST,
+  database: process.env.DB_NAME,
+  password: process.env.DB_PASS,
+  port: process.env.DB_PORT,
+  ssl: false, 
 });
-// 4th draft
+db.connect();
 
+
+// // Connect to PostgreSQL database - RENDER HOSTING
+// const db = new pg.Client({
+//   connectionString: process.env.DATABASE_URL,
+//   ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : false,
+// });
+
+// 4th draft
 // Session configuration for login persistence
+
 app.use(session({
-  secret: "daybuddySecret", // Use strong secret in production
+  secret: "daybuddySecret", 
   resave: false,
   saveUninitialized: false,
 }));
