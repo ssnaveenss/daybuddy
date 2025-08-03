@@ -131,11 +131,45 @@ A full-stack productivity platform designed to help students turn big semester-l
 
 ---
 
+## Screenshots
+
+### 1️⃣ Login Page
+![Login Page](screenshots/1-login-page.png)
+
+### 2️⃣ Dynamic Quote - Login Page
+![Dynamic Login Page](screenshots/2-login-page(dynamic).png)
+
+### 3️⃣ Home Page
+![Home Page](screenshots/3-home-page.png)
+
+### 4️⃣ Tasks & Goals Page
+![Tasks & Goals Page](screenshots/4-tasks-goals-page.png)
+
+### 5️⃣ Pomodoro Timer Page
+![Pomodoro Timer Page](screenshots/5-Pomodoro-timer-page.png)
+
+### 6️⃣ Resources Page
+![Resources Page](screenshots/6-Resources-page.png)
+
+### 7️⃣ Progress Page
+![Progress Page](screenshots/7-Progress-page.png)
+
+### 8️⃣ About Page
+![About Page](screenshots/8-About-page.png)
+
+### 9️⃣ Navbar
+![Navbar](screenshots/9-Navbar.png)
+
+### 🔟 Favicon
+![DayBuddy Favicon](screenshots/10-DayBuddy-Favicon.png)
+
+---
+
 ## Future Enhancements
 
 - Email reminders when you’re close to breaking your streak.  
-- Mobile-responsive layout and PWA support.  
-- Analytics dashboard with charts (e.g., Chart.js) showing weekly/monthly trends.  
+- Mobile-responsive layout.  
+- Analytics dashboard with charts showing weekly/monthly trends.  
 - Social sharing: brag about your streaks or goals.
 
 ---
