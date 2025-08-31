@@ -104,21 +104,73 @@ A full-stack productivity platform designed to help students turn big semester-l
 
 ---
 
-## Usage
+# DayBuddy – Workflow
 
-1. Log in via Google on the home page.  
-2. Onboarding  
-   - If first time, add at least one habit.
-3. Tasks & Goals (`/tasks`)  
-   - Add daily tasks, complete them, and track long-term goals.
-4. Pomodoro (`/pomodoro`)  
-   - Start, pause, reset, and configure timers.
-5. Habit Streaks  
-   - Automatically updated when you complete ≥2 tasks + 1 Pomodoro in a day.
-6. Resources (`/resources`)  
-   - Save up to 4 custom links for study tools or reference sites.
-7. Progress (`/progress`)  
-   - View your past 30-day completion heatmap.
+DayBuddy is a minimalist productivity companion that helps you **make big dreams achievable — one productive day at a time**.  
+It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resources, and progress visualization** — all in one intuitive platform.
+
+## 1. Authentication & Home Page
+
+- **Login with Google OAuth** to access the app.  
+- Once logged in, the home dashboard shows:  
+  - **Dynamic motivational quote** (changes every refresh).  
+  - **Current streak count**.  
+  - **"Let’s Do It!" button** → jump into the app.  
+  - **Logout button**.  
+
+## 2. Tasks & Goals (`/tasks`)
+
+- **Tasks** → Manage your daily to-dos.  
+  - Add, edit, delete, and mark as done.  
+  - Every completed task increments the `task_done_count` in `daily_logs`.  
+- **Goals** → Manage semester/long-term objectives.  
+  - Add, edit, complete, or remove goals.  
+
+## 3. Pomodoro (`/pomodoro`)
+
+- Use a **customizable Pomodoro timer** (start, pause, reset).  
+- **Completion of a single session** updates the `pomodoro_done` field in `daily_logs`.  
+- Together with tasks, Pomodoro sessions feed into **habit streak logic**.  
+
+## 4. Habit Streaks
+
+- **Rule**: Completing **at least 2 tasks and 1 Pomodoro in a day** increments the streak.  
+- Streak tracking updates three tables:  
+  - `habits.streak_count` → live running streak.  
+  - `daily_logs.streak_incremented` → marks the increment for the day.  
+  - `streak_history.streak_on_day` → stores historical streak growth for trend analysis.  
+- Missed days do not increment streaks.  
+
+## 5. Resources (`/resources`)
+
+- Save **unlimited custom links** for tools, docs, or study sites.  
+- Uses **Google Favicon API** to auto-fetch website icons for a clean, user-friendly UI.  
+- Provides quick access to productivity essentials.  
+
+## 6. Progress (`/progress`)
+
+- Displays a **30-day completion heatmap** using `daily_logs`.  
+- Each day is marked as:  
+  - **Green** → Streak met (≥ 2 tasks and 1 Pomodoro).  
+  - **Grey** → Streak not met.  
+- Helps visualize **consistency and growth over time**.
+
+## 7. About (`/about`)
+
+- **About DayBuddy** → Explains the app’s purpose and philosophy.  
+- **About the Developer**:  
+  - I’m **Naveen S S**, IT student at PSG College of Technology.  
+  - Passionate about **full-stack development, UI/UX design, and productivity tools**.  
+  - Built DayBuddy to help students and professionals **stay focused, track progress, and cultivate discipline**.  
+- **Get in Touch** → Links to **LinkedIn, GitHub, Gmail**.  
+
+## 8. Behind the Scenes (Tech Flow)
+
+1. **Express + PostgreSQL** backend with Google OAuth via Passport.js.  
+2. `daily_logs` table ensures all activity (tasks, Pomodoro, streaks) is tracked per day.  
+3. `updateStreakIfNeeded()` function checks conditions and updates streaks automatically.  
+4. Midnight cron-like check ensures streaks are updated consistently.  
+5. **EJS views + Tailwind CSS** provide a clean, minimalist UI.  
 
 ---
 
