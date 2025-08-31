@@ -34,7 +34,7 @@ A full-stack productivity platform designed to help students turn big semester-l
 
 1. Clone the repo  
    ```bash
-   git clone https://github.com/yourusername/daybuddy.git
+   git clone https://github.com/ssnaveenss/daybuddy.git
    cd daybuddy
    ```
 
