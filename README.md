@@ -7,37 +7,15 @@ A full-stack productivity platform designed to help students turn big semester-l
 
 ## Key Features
 
-- User Authentication  
-  Sign in with Google (OAuth2) for private, per-user data.
-
+- User Authentication
+- Dyanmic Motivational Quotes    
 - Daily Task Planner  
-  - Add, edit, delete, and complete tasks.  
-  - Tasks tied to your account.
-
 - Long-Term Goals  
-  - Track semester-long objectives.  
-  - Mark goals as completed when you achieve them.
-
-- Pomodoro Timer  
-  - Fully customizable work/break durations.  
-  - Automatic session logging.  
-  - Bell sound at session end.  
-
+- Pomodoro Timer    
 - Habit Streaks  
-  - Automatic streaks when you complete ≥2 tasks and 1 Pomodoro per day.  
-  - Resets if you miss the next day.  
-  - Stores each day’s streak in history for later analysis.
-
 - My Resources  
-  - Save, name, and launch up to four custom links (websites, study tools).  
-  - Displayed as favicon-labeled “cards” for quick access.
-
 - Progress Overview  
-  - Visualize your last 30 days of “all criteria met” days.  
-  - Progress page accessible from the navbar.
-
-- Motivational Quotes  
-  - A fresh, bite-sized quote each visit to keep you inspired.
+- About DayBuddy
 
 ---
 
@@ -104,12 +82,12 @@ A full-stack productivity platform designed to help students turn big semester-l
 
 ---
 
-# DayBuddy – Workflow
+## DayBuddy – Workflow
 
 DayBuddy is a minimalist productivity companion that helps you **make big dreams achievable — one productive day at a time**.  
 It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resources, and progress visualization** — all in one intuitive platform.
 
-## 1. Authentication & Home Page
+### 1. Authentication & Home Page
 
 - **Login with Google OAuth** to access the app.  
 - Once logged in, the home dashboard shows:  
@@ -118,7 +96,7 @@ It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resource
   - **"Let’s Do It!" button** → jump into the app.  
   - **Logout button**.  
 
-## 2. Tasks & Goals (`/tasks`)
+### 2. Tasks & Goals (`/tasks`)
 
 - **Tasks** → Manage your daily to-dos.  
   - Add, edit, delete, and mark as done.  
@@ -126,13 +104,13 @@ It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resource
 - **Goals** → Manage semester/long-term objectives.  
   - Add, edit, complete, or remove goals.  
 
-## 3. Pomodoro (`/pomodoro`)
+### 3. Pomodoro (`/pomodoro`)
 
 - Use a **customizable Pomodoro timer** (start, pause, reset).  
 - **Completion of a single session** updates the `pomodoro_done` field in `daily_logs`.  
 - Together with tasks, Pomodoro sessions feed into **habit streak logic**.  
 
-## 4. Habit Streaks
+### 4. Habit Streaks
 
 - **Rule**: Completing **at least 2 tasks and 1 Pomodoro in a day** increments the streak.  
 - Streak tracking updates three tables:  
@@ -141,13 +119,13 @@ It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resource
   - `streak_history.streak_on_day` → stores historical streak growth for trend analysis.  
 - Missed days do not increment streaks.  
 
-## 5. Resources (`/resources`)
+### 5. Resources (`/resources`)
 
 - Save **unlimited custom links** for tools, docs, or study sites.  
 - Uses **Google Favicon API** to auto-fetch website icons for a clean, user-friendly UI.  
 - Provides quick access to productivity essentials.  
 
-## 6. Progress (`/progress`)
+### 6. Progress (`/progress`)
 
 - Displays a **30-day completion heatmap** using `daily_logs`.  
 - Each day is marked as:  
@@ -155,7 +133,7 @@ It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resource
   - **Grey** → Streak not met.  
 - Helps visualize **consistency and growth over time**.
 
-## 7. About (`/about`)
+### 7. About (`/about`)
 
 - **About DayBuddy** → Explains the app’s purpose and philosophy.  
 - **About the Developer**:  
@@ -164,13 +142,14 @@ It combines **habits, tasks, goals, Pomodoro sessions, streak tracking, resource
   - Built DayBuddy to help students and professionals **stay focused, track progress, and cultivate discipline**.  
 - **Get in Touch** → Links to **LinkedIn, GitHub, Gmail**.  
 
-## 8. Behind the Scenes (Tech Flow)
+### 8. Behind the Scenes (Tech Flow)
 
 1. **Express + PostgreSQL** backend with Google OAuth via Passport.js.  
 2. `daily_logs` table ensures all activity (tasks, Pomodoro, streaks) is tracked per day.  
 3. `updateStreakIfNeeded()` function checks conditions and updates streaks automatically.  
 4. Midnight cron-like check ensures streaks are updated consistently.  
-5. **EJS views + Tailwind CSS** provide a clean, minimalist UI.  
+5. **EJS views + CSS** provide a clean, minimalist UI.  
+
 
 ---
 
