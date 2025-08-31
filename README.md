@@ -99,7 +99,7 @@ A full-stack productivity platform designed to help students turn big semester-l
 | goals            | id, user_id, goal_text, is_completed | Semester-long objectives                                    |
 | habits           | id, user_id, habit_name, streak_count, last_checked | Tracks habit streaks                    |
 | daily_logs       | log_date, user_id, task_done_count, pomodoro_done, streak_incremented | Daily activity summary |
-| streak_history   | user_id, date, streak_on_day   | Snapshot of streak after each increment                            |
+| streak_history   | user_id, date, streak_on_day   | Keeps a history of your streaks over time (Progress Heatmap)                            |
 | resources        | id, user_id, name, url         | Saved links for quick access                                       |
 
 ---
